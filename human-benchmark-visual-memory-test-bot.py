@@ -15,11 +15,11 @@ try:
             ]
             notfound = len(newboxes) == 0
         # time.sleep(3)
-        # for element in newboxes:
-        #     try:
-        #         element.click()
-        #     except:
-        #         continue
+        for element in newboxes:
+            try:
+                element.click()
+            except:
+                continue
         
 finally:
     driver.quit
