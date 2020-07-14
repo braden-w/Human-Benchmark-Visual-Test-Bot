@@ -1,22 +1,25 @@
 from selenium import webdriver
+import time
 
 driver = webdriver.Firefox()
-driver.get("humanbenchmark.com/tests/chimp")
+driver.get("https://humanbenchmark.com/tests/memory")
+
 
 try:
     while True:
-        # Create dictionary of <box number>:<box location> before they dissappear
-        newboxes = {
-            element.text: element
-            for element in driver.find_elements_by_class_name("css-19b5rdt")
-        }
-        # Use box number key in dictionary as lookup from 1 to n
-        for counter in range(1, len(newboxes) + 1):
-            newboxes[str(counter)].click()
-        try:
-            driver.find_element_by_class_name("css-qm0ri0").click()
-        except:
-            continue
-
+        notfound = True
+        while notfound:
+            newboxes = [
+                element
+                for element in driver.find_elements_by_class_name("active")
+            ]
+            notfound = len(newboxes) == 0
+        # time.sleep(3)
+        # for element in newboxes:
+        #     try:
+        #         element.click()
+        #     except:
+        #         continue
+        
 finally:
     driver.quit
