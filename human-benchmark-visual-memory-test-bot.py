@@ -14,7 +14,7 @@ try:
                 for element in driver.find_elements_by_class_name("active")
             ]
             notfound = len(newboxes) == 0
-        # time.sleep(3)
+        time.sleep(1)
         for element in newboxes:
             try:
                 element.click()
