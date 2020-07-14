@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 driver = webdriver.Firefox()
-driver.get("https://humanbenchmark.com/tests/chimp")
+driver.get("humanbenchmark.com/tests/chimp")
 
 try:
     while True:
