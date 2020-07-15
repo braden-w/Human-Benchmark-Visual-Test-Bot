@@ -22,10 +22,7 @@ while True:
     #         for element in driver.find_elements_by_class_name("active")
     #     ]
     #     notfound = len(newboxes) <= 1
+    time.sleep(2)
     for element in newboxes:
         element.click()
-            except:
-                continue
-        
-finally:
-    driver.quit
+    time.sleep(1)
